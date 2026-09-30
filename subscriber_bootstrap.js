@@ -5,7 +5,7 @@
   const hash = location.hash;
   if (hash.startsWith('#subscriber_verify') || hash === '#billing_return') {
     history.replaceState(null, '', location.pathname);
-    landing = hash === '#billing_return' ? 'billing_return' : (/^#subscriber_verify=[a-f0-9]{64}$/.test(hash) ? hash.slice(19) : 'invalid');
+    landing = hash === '#billing_return' ? 'billing_return' : null;
   }
   window.cluttercashSubscriberTake = () => { const result = landing; landing = null; return result; };
   const intentName = 'cluttercash.subscriber.intent';
